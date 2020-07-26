@@ -27,16 +27,18 @@ jar {
 }
 
 azurefunctions {
-    resourceGroup = 'my-spring-function-resource-group'
-    appName = 'my-spring-function'
+    resourceGroup = 'リソースグループ名'
+    appName = 'アプリ名'
+    region = 'westus'
+    pricingTier = 'Consumption'
+    runtime {
+        os = 'linux'
+    }
     appSettings {
         WEBSITE_RUN_FROM_PACKAGE = '1'
-        FUNCTIONS_EXTENSION_VERSION = ~ '~2'
+        FUNCTIONS_EXTENSION_VERSION = '~3'
         FUNCTIONS_WORKER_RUNTIME = 'java'
         MAIN_CLASS = 'com.example.HelloFunction'
-    }
-    authentication {
-        type = 'azure_cli'
     }
     localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
     deployment {
